@@ -1,0 +1,135 @@
+/* =============================================
+   LV4 – dodatni stilovi (forme, flash, dashboard)
+============================================= */
+
+/* ── Flash poruke ─────────────────────────────────────────── */
+.flash {
+    max-width: 1200px;
+    margin: 12px auto 0;
+    padding: 12px 20px;
+    border-radius: var(--radius-md);
+    font-size: 0.88rem;
+    font-weight: 500;
+}
+.flash-success { background: #0a2a0a; border: 1px solid #1a6a1a; color: #5fb87a; }
+.flash-error   { background: #2a0808; border: 1px solid var(--accent-red); color: #e05050; }
+.flash-warning { background: #2a1a00; border: 1px solid #6b5320; color: var(--gold); }
+
+/* ── Forme ────────────────────────────────────────────────── */
+.form-group {
+    margin-bottom: 16px;
+}
+.form-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    background: var(--bg-dark);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 9px 12px;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    transition: border-color var(--transition);
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--gold-dim);
+    background: var(--bg-hover);
+}
+.form-group input[type="file"] {
+    padding: 6px;
+    cursor: pointer;
+}
+
+/* ── Gumbi ────────────────────────────────────────────────── */
+.btn-primary {
+    width: 100%;
+    padding: 11px 20px;
+    background: var(--gold-dim);
+    color: var(--gold-light);
+    border: 1px solid var(--gold-dim);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background var(--transition), border-color var(--transition);
+}
+.btn-primary:hover {
+    background: #5c3f10;
+    border-color: var(--gold);
+    color: var(--gold-light);
+}
+
+/* ── Dashboard ────────────────────────────────────────────── */
+.dash-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+.stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.stat-num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--gold);
+    font-weight: 700;
+}
+.stat-lbl {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+.dash-grid {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+/* ── Galerija grid ───────────────────────────────────────── */
+.galerija {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 16px;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 1100px) {
+    .dash-stats { grid-template-columns: repeat(2, 1fr); }
+    .dash-grid  { grid-template-columns: 1fr; }
+    .galerija   { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+    .dash-stats { grid-template-columns: repeat(2, 1fr); }
+    .galerija   { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+    .dash-stats { grid-template-columns: 1fr 1fr; }
+    .galerija   { grid-template-columns: 1fr; }
+}

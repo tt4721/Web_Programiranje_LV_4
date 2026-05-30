@@ -1,0 +1,138 @@
+/* NASLOVI */
+
+.galerija-naslov {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.galerija-opis {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+/* GRID */
+
+.galerija {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  animation: fade-up 0.5s ease both;
+}
+
+.lb-item {
+  position: relative;
+}
+
+/* KARTICA */
+
+.galerija_slika {
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.galerija_slika:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+}
+
+.galerija_slika img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  opacity: 0.9;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+.galerija_slika:hover img {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+/* OPIS */
+
+.galerija_slika figcaption {
+  padding: 8px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: center;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+}
+
+/* LIGHTBOX */
+
+.lb-toggle {
+  display: none;
+}
+
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.lb-toggle:checked ~ .lightbox-overlay {
+  display: flex;
+}
+
+.lightbox-box {
+  max-width: 90vw;
+  max-height: 90vh;
+  animation: fade-up 0.25s ease;
+}
+
+.lightbox-box img {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 10px 50px rgba(0,0,0,0.8);
+}
+
+/* CLOSE BUTTON */
+
+.lightbox-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  display: inline-block;
+  padding: 6px 16px;
+  font-size: 0.8rem;
+  background: var(--border-gold);
+  color: var(--gold);
+  border: 1px solid var(--gold-dim);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.lightbox-close:hover {
+  background: var(--gold-dim);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .galerija { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .galerija { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 380px) {
+  .galerija { grid-template-columns: 1fr; }
+}

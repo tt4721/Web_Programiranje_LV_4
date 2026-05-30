@@ -1,0 +1,360 @@
+/* =========================
+   GRAFIKON
+========================= */
+
+:root {
+  --color1: #c9a84c;
+  --color2: #9b80e0;
+  --color3: #c04040;
+  --color4: #4ab0c0;
+  --chart-size: 280px;
+}
+
+/* =========================
+   PAGE INTRO
+========================= */
+
+.page-intro {
+  max-width: 600px;
+  margin: 32px auto 0;
+  text-align: center;
+  animation: fade-up 0.5s ease both;
+}
+
+.page-intro h2 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.page-intro p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.grafikon-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px 48px;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.grafikon-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 28px;
+}
+
+/* =========================
+   KARTICE
+========================= */
+
+.grafikon-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  animation: fade-up 0.5s ease both;
+}
+
+.grafikon-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.card-header h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.card-badge {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--bg-hover);
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+}
+
+/* =========================
+   PIE CHART
+========================= */
+
+.pie-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 8px 0 20px;
+}
+
+.pie-chart {
+  width: var(--chart-size);
+  height: var(--chart-size);
+  border-radius: 50%;
+  position: relative;
+  background: conic-gradient(
+    var(--color1) 0% 30%,
+    var(--color2) 30% 55%,
+    var(--color3) 55% 70%,
+    var(--color4) 70% 100%
+  );
+  box-shadow: 0 0 0 1px var(--border);
+  animation: rotateChart 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* PIE HOLE */
+
+.pie-hole {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 42%;
+  height: 42%;
+  background: var(--bg-card);
+  border-radius: 50%;
+  border: 1px solid var(--border);
+}
+
+/* =========================
+   TOOLTIP
+========================= */
+
+.tooltip {
+  position: absolute;
+  background: var(--bg-dark);
+  border: 1px solid var(--border-gold);
+  color: var(--gold);
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.t1 { top: 8%;  left: 58%; }
+.t2 { top: 58%; left: 66%; }
+.t3 { top: 68%; left: 14%; }
+.t4 { top: 14%; left: 6%;  }
+
+.pie-chart:hover .tooltip {
+  opacity: 1;
+}
+
+/* =========================
+   LEGENDA
+========================= */
+
+.legenda {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0;
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+}
+
+.legenda li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.83rem;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+.legenda li strong {
+  margin-left: auto;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.dot1 { background: var(--color1); }
+.dot2 { background: var(--color2); }
+.dot3 { background: var(--color3); }
+.dot4 { background: var(--color4); }
+
+/* =========================
+   BAR CHART
+========================= */
+
+.bar-chart {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  height: 280px;
+}
+
+.bar-y-axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 28px;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+
+.bar-y-axis span {
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
+}
+
+.bar-area {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  gap: 12px;
+  border-left: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 0 8px;
+  position: relative;
+}
+
+/* HORIZONTAL LINES */
+
+.bar-area::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent calc(25% - 0.5px),
+    var(--border) calc(25% - 0.5px),
+    var(--border) 25%
+  );
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.bar {
+  width: 100%;
+  max-width: 56px;
+  height: var(--value);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  position: relative;
+  animation: grow 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  cursor: default;
+}
+
+.bar:hover {
+  opacity: 0.85;
+  transform: scaleY(1.03);
+  transform-origin: bottom;
+}
+
+.bar1 { background: var(--color1); box-shadow: 0 0 12px rgba(201,168,76,0.2); }
+.bar2 { background: var(--color2); box-shadow: 0 0 12px rgba(155,128,224,0.2); }
+.bar3 { background: var(--color3); box-shadow: 0 0 12px rgba(192,64,64,0.2); }
+.bar4 { background: var(--color4); box-shadow: 0 0 12px rgba(74,176,192,0.2); }
+
+.bar-val {
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.bar-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* =========================
+   ANIMACIJE
+========================= */
+
+@keyframes grow {
+  from { height: 0; }
+  to   { height: var(--value); }
+}
+
+@keyframes rotateChart {
+  from { transform: rotate(-180deg); opacity: 0; }
+  to   { transform: rotate(0deg);   opacity: 1; }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .grafikon-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .grafikon-container {
+    padding: 0 18px 40px;
+  }
+
+  :root {
+    --chart-size: 220px;
+  }
+
+  .bar-chart {
+    height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-intro h2 {
+    font-size: 1.4rem;
+  }
+}
